@@ -13,16 +13,14 @@ import javafx.scene.layout.FlowPane;
 
 public class HUD extends FlowPane
 {
-    private FlowPane theHUD;
-
     public HUD( ) throws IOException
     {
-        theHUD = new FlowPane( Orientation.HORIZONTAL );
-        theHUD.setPrefWidth( 1000 );
-        theHUD.setPrefHeight( 75 );
-        theHUD.setHgap( 10 );
-        theHUD.setStyle( "-fx-background-color: linear-gradient(to bottom, #0087CB, #000000);" );
-        theHUD.setAlignment( Pos.CENTER );
+        setOrientation( Orientation.HORIZONTAL );
+        setPrefWidth( 1000 );
+        setPrefHeight( 75 );
+        setHgap( 10 );
+        setStyle( "-fx-background-color: linear-gradient(to bottom, #0087CB, #000000);" );
+        setAlignment( Pos.CENTER );
 
         ImageView searchIcon = new ImageView( new Image( new FileInputStream( "src/main/resources/search.png" ) ) );
         searchIcon.setFitHeight( 50 );
@@ -33,9 +31,9 @@ public class HUD extends FlowPane
         FlowPane searchPane = new FlowPane( searchIcon, makeSearchArea() );
         searchPane.setOrientation( Orientation.HORIZONTAL );
 
-        theHUD.getChildren().addAll( makeHomeBtn(), searchPane, makeAccountBtn(), makeLogoutBtn(), makeCartBtn() );
+        getChildren().addAll( makeHomeBtn(), searchPane, makeAccountBtn(), makeLogoutBtn(), makeCartBtn() );
 
-        this.getChildren().add( theHUD );
+        setAlignment( Pos.CENTER );
     }
 
     private Button makeHomeBtn( )
